@@ -4,7 +4,7 @@ const path = require('path');
 const csvWriter = require('csv-write-stream');
 
 const DAVIS_API_URL = "https://api.weatherlink.com/v1/NoaaExt.json?user=001D0AE0D9F1&pass=Bheem@9986&apiToken=FB6A9D3466F14A2F9CDB1A04911E4202";
-const HALF_HOUR_MS = 30 * 60 * 1000;
+const FIFTEEN_MINUTES_MS = 15 * 60 * 1000;
 
 const CSV_FILE = path.join(__dirname, '..', '..', 'data', 'actual_weather_data.csv');
 const OBSERVATIONS_CSV_FILE = path.join(__dirname, '..', '..', 'data', 'weather_observations.csv');
@@ -237,7 +237,7 @@ function getWeatherConditions(range = 'hourly') {
 
 function startPolling() {
   fetchWeather(); // Initial fetch
-  setInterval(fetchWeather, HALF_HOUR_MS); // Every 30 minutes
+  setInterval(fetchWeather, FIFTEEN_MINUTES_MS); // Every 15 minutes
 }
 
 module.exports = {

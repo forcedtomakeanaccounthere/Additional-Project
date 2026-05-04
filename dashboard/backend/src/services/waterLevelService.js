@@ -4,7 +4,7 @@ const { getLatestWeather } = require('./weatherService');
 
 const CSV_FILE = path.join(__dirname, '..', '..', 'data', 'actual_water_level.csv');
 const TANK_LEVELS_CSV_FILE = path.join(__dirname, '..', '..', 'data', 'tank_levels.csv');
-const HALF_HOUR_MS = 30 * 60 * 1000;
+const FIFTEEN_MINUTES_MS = 15 * 60 * 1000;
 
 // Tank params
 const MAX_VOL_GAL = 1077; // 12ft * 12 sq ft * 7.48 gal/cu ft
@@ -111,7 +111,7 @@ function startSimulation() {
     }
 
     simulateStep(); // run once immediately
-    setInterval(simulateStep, HALF_HOUR_MS);
+    setInterval(simulateStep, FIFTEEN_MINUTES_MS);
 }
 
 module.exports = { startSimulation, getWaterLevelHistory };

@@ -14,3 +14,5 @@ timestamp,temperature_c,humidity,pressure_mb,dewpoint_c,heat_index_c,wind_mph,ra
 2026-04-26T05:38:26.849Z,28,87,1009.8,25.6,33.3,0,0,0,9,0,bheemhh,Davis Weather Station
 2026-04-26T05:40:35.533Z,28,87,1009.8,25.6,33.3,0,0,0,9,0,bheemhh,Davis Weather Station
 2026-04-26T06:10:36.322Z,28,87,1009.8,25.6,33.3,0,0,0,9,0,bheemhh,Davis Weather Station
+2026-05-04T08:32:16.946Z,35.5,61,1006.5,26.7,47.8,0,0,0,445,2.3,bheemhh,Davis Weather Station
+2026-05-04T08:55:57.054Z,35.8,59,1006.1,26.7,47.8,0,0,0,234,1.2,bheemhh,Davis Weather Station
