@@ -154,5 +154,5 @@ A full web dashboard is now available in `dashboard/` with:
 - Live and forecasted water level profile
 - Capacity/overflow alerts and operator notifications
 - Pump recommendation with hard cap at 2 pumps
-- Environmental trends: rainfall, groundwater response, saturation matrix
+- Environmental trends: rainfall, groundwater response, regional forecast
 - Operations view: pump status, activity log, maintenance items

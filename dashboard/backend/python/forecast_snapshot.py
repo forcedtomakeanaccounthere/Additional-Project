@@ -18,8 +18,8 @@ import numpy as np
 import pandas as pd
 
 
-LIVE_LAT = 13.562101
-LIVE_LON = 80.025283
+LIVE_LAT = 13.562084947767929
+LIVE_LON = 80.02525467632222
 LIVE_TZ = "Asia/Kolkata"
 
 
@@ -491,25 +491,6 @@ def _environmental_series(df: pd.DataFrame) -> List[Dict[str, Any]]:
     return points
 
 
-def _saturation_grid(df: pd.DataFrame) -> List[Dict[str, Any]]:
-    recent = df.tail(24 * 3)
-    rain = _safe_float(recent["Rain"].mean(), 0.0)
-    humidity = _safe_float(recent["Humidity"].mean(), 55.0)
-
-    grid = []
-    for x in range(1, 8):
-        for y in range(1, 8):
-            value = min(100.0, max(0.0, (rain * 3.8) + (humidity * 0.45) + x * 2 - y * 1.5))
-            grid.append(
-                {
-                    "x": x,
-                    "y": y,
-                    "saturation": round(value, 1),
-                }
-            )
-    return grid
-
-
 def _regional_forecast(pred: pd.DataFrame, live_weather: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
     if live_weather and live_weather.get("ok"):
         daily_rows = live_weather.get("dailyRows", [])
@@ -673,7 +654,6 @@ def build_snapshot(
 
     environmental = {
         "precipitationVsGroundwater": _environmental_series(df),
-        "saturationGrid": _saturation_grid(df),
         "regionalForecast": _regional_forecast(pred, live_weather),
     }
 
@@ -781,7 +761,6 @@ def main() -> None:
             },
             "environmental": {
                 "precipitationVsGroundwater": [],
-                "saturationGrid": [],
                 "regionalForecast": [],
             },
             "operations": {

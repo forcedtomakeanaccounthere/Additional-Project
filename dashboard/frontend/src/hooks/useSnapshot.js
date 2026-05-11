@@ -14,7 +14,6 @@ const EMPTY_SNAPSHOT = {
   },
   environmental: {
     precipitationVsGroundwater: [],
-    saturationGrid: [],
     regionalForecast: [],
   },
   operations: {
